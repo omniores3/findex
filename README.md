@@ -1,0 +1,53 @@
+# `TESearch` 全名Telegram Elasticsearch
+
+[TESearch](https://[68i.net/forum-post/18.html)，是一款基于 `Fastadmin`、`Elasticsearch`，开发的TG搜索引擎系统。主要功能有群组收录，检索信息，自动编排等功能。
+
+---
+
+### 1. 功能
+
+- [x] 🎉 支持分类信息检索；
+- [x] 🍀 支持群组**评分**、**举报**、**设置**、**采集**；
+- [x] 🏁 支持后台设置 **HTML** 和 **Markdown** 以及 **MarkDownV2**；
+- [x] 💃🏻 支持插入原生 Emoji、设置常用表情列表；
+- [x] 🚑 支持Openai内容审查以及自动分类；
+- [x] 📝 支持 **免费排名功能** ，通过命令根据设置来计算搜索KD值来排名；
+- [x] 🛠  支持搜索广告,搜索按钮广告,进群欢迎广告,置顶广告,关键词广告,品牌广告
+- [x] ✨ 后台支持**一键导入导出**携带样式的 PDF、EXCEL 等功能；
+- [x] ✨ 使用**Elasticsearch**来存储数据,亿条数据毫秒级响应,大厂都在使用；
+- [x] 👏 支持一键旧数据导入,api数据导入,py采集；
+- [x] 🦑 使用 **Epusdt** 支付,对usdt的收款支持；
+- [x] 🌟 **邀请奖励、搜索奖励** 进行了防刷代码；
+- [x] 🌟 自定义标签,自定义搜索,自定义欢迎广告,自定义置顶广告等
+
+---
+
+### 2. 演示信息
+
+演示机器人:[@demososoBot](https://t.me/demososoBot)
+
+演示群组:[@bot68i](https://t.me/bot68i)
+
+演示后台:[https://bot.session.dpdns.org/wocaole.php](https://bot.session.dpdns.org/wocaole.php)    用户名:admin     密码:Qwe12345.
+
+客服:[@sessionos](https://t.me/sessionos)
+
+---
+
+### 3. 演示截图
+
+> **备注**：禁止将系统用于违法犯罪,否则后果自负。
+
+---
+
+### 8. 绘制表格
+
+| 客户机器人        | 演示机器人   |  上线日期  |
+| :--------  | :-----  | :----:  |
+| 仿SOSO机器人 | [@demososoBot](https://t.me/demososoBot) |2025-04-24|
+
+
+---
+
+
+最新更新于 2025.04.16
