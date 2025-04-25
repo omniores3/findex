@@ -28,9 +28,9 @@
 
 演示群组:[@bot68i](https://t.me/bot68i)
 
-演示后台:[https://bot.session.dpdns.org/wocaole.php](https://bot.session.dpdns.org/wocaole.php)    用户名:admin     密码:Qwe12345.
+演示后台: 找客服索取
 
-客服:[@sessionos](https://t.me/sessionos)
+客服:[@Diauid](https://t.me/Diauid)
 
 ---
 
