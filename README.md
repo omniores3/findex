@@ -57,7 +57,7 @@ After the sale, it is unknown what the user will use the program source code for
 
 #### 售价:
 
-> 3000U   TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
+> 1500U   TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
 
 #### 接口文档:
 
