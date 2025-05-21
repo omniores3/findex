@@ -1,11 +1,11 @@
 <p align="center"><img src="https://s1.imagehub.cc/images/2025/05/14/a1b903583154271050191c1a6f2de085.png" width="200"></p>
 <p align="center">
-<a href="https://t.me/buzhiguiqi"><img src="https://img.shields.io/badge/buy-code-blue" alt="buy code"></a>
-<a href="https://github.com/assimon/dujiaoka/releases/tag/1.0.0"><img src="https://img.shields.io/badge/version-1.0.0-red" alt="version 1.0.0"></a>
+<a href="https://t.me/easSearchs"><img src="https://img.shields.io/badge/buy-code-blue" alt="buy code"></a>
+<a href="https://github.com/omniores3/findex/releases/tag/1.0.0"><img src="https://img.shields.io/badge/version-1.0.0-red" alt="version 1.0.0"></a>
 <a href="https://www.php.net/releases/7_4_0.php"><img src="https://img.shields.io/badge/PHP-7.4-lightgrey" alt="php74"></a>
 <a href="https://t.me/easSearch"><img src="https://img.shields.io/badge/Telegram%E7%BE%A4-easSearch-green" alt="TG群：easSearch"></a>
 </p>
-## phpSearch
+### phpSearch
 
 #### 免责声明 (Disclaimer)
 
