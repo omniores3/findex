@@ -3,7 +3,7 @@
 <a href="https://t.me/buzhiguiqi"><img src="https://img.shields.io/badge/buy-code-blue" alt="buy code"></a>
 <a href="https://github.com/assimon/dujiaoka/releases/tag/1.0.0"><img src="https://img.shields.io/badge/version-1.0.0-red" alt="version 1.0.0"></a>
 <a href="https://www.php.net/releases/7_4_0.php"><img src="https://img.shields.io/badge/PHP-7.4-lightgrey" alt="php74"></a>
-<a href="https://shang.qq.com/wpa/qunwpa?idkey=37b6b06f7c941dae20dcd5784088905d6461064d7f33478692f0c4215546cee0"><img src="https://img.shields.io/badge/Telegram%E7%BE%A4-buzhiguiqi-green" alt="QQ群：568679748"></a>
+<a href="https://t.me/easSearch"><img src="https://img.shields.io/badge/Telegram%E7%BE%A4-easSearch-green" alt="TG群：easSearch"></a>
 </p>
 ## phpSearch
 
