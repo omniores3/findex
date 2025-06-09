@@ -1,0 +1,22 @@
+CREATE TABLE `tg_ads` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL COMMENT '广告标题',
+  `content` text NOT NULL COMMENT '广告内容',
+  `image` varchar(255) DEFAULT NULL COMMENT '广告图片',
+  `url` varchar(255) DEFAULT NULL COMMENT '广告链接',
+  `position` enum('top','bottom','welcome','scheduled','pinned','brand','keyword') NOT NULL COMMENT '广告位置',
+  `keywords` varchar(255) DEFAULT NULL COMMENT '关键词(逗号分隔)',
+  `target_id` int(11) DEFAULT NULL COMMENT '目标群组/频道ID',
+  `status` tinyint(1) DEFAULT '0' COMMENT '状态 0-待审核 1-已上线 2-已下线',
+  `start_time` int(11) NOT NULL COMMENT '开始时间',
+  `end_time` int(11) NOT NULL COMMENT '结束时间',
+  `sort` int(11) DEFAULT '0' COMMENT '排序权重',
+  `ad_type` enum('text','image','video','button') DEFAULT 'text' COMMENT '广告类型',
+  `button_data` text DEFAULT NULL COMMENT '按钮数据(JSON格式)',
+  `create_time` int(11) DEFAULT NULL COMMENT '创建时间',
+  `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_position` (`position`),
+  KEY `idx_status` (`status`,`start_time`,`end_time`),
+  KEY `idx_keywords` (`keywords`(20))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Telegram广告表';

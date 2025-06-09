@@ -1,0 +1,26 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <h1>{:__('推广结构')}</h1>
+        <div class="tree">
+            <ul>
+                <li>
+                    <span><i class="fa fa-user"></i> <a href="{:url('tg/user/promotion')}?id={$row.id}">{$row.tnick}</a> (<a href="https://t.me/{$row.tusername}" target="_blank">{$row.tusername})</a></span>
+                    <ul>
+                        {foreach name="tree" item="node"}
+                        <li>
+                            <span>
+                                {for start="1" end="$node.level"}
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {/for}
+                                <i class="fa fa-user"></i> <a href="{:url('tg/user/promotion')}?id={$node.id}">{$node.tnick}</a> (<a href="https://t.me/{$node.tusername}" target="_blank">{$node.tusername}</a>)
+                            </span>
+                        </li>
+                        {/foreach}
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

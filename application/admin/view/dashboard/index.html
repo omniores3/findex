@@ -1,0 +1,520 @@
+<style type="text/css">
+    .sm-st {
+        background: #fff;
+        padding: 20px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        margin-bottom: 20px;
+    }
+
+    .sm-st-icon {
+        width: 60px;
+        height: 60px;
+        display: inline-block;
+        line-height: 60px;
+        text-align: center;
+        font-size: 30px;
+        background: #eee;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        float: left;
+        margin-right: 10px;
+        color: #fff;
+    }
+
+    .sm-st-info {
+        padding-top: 2px;
+    }
+
+    .sm-st-info span {
+        display: block;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .orange {
+        background: #fa8564 !important;
+    }
+
+    .tar {
+        background: #45cf95 !important;
+    }
+
+    .sm-st .green {
+        background: #86ba41 !important;
+    }
+
+    .pink {
+        background: #AC75F0 !important;
+    }
+
+    .yellow-b {
+        background: #fdd752 !important;
+    }
+
+    .stat-elem {
+
+        background-color: #fff;
+        padding: 18px;
+        border-radius: 40px;
+
+    }
+
+    .stat-info {
+        text-align: center;
+        background-color: #fff;
+        border-radius: 5px;
+        margin-top: -5px;
+        padding: 8px;
+        -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+        font-style: italic;
+    }
+
+    .stat-icon {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .st-red {
+        background-color: #F05050;
+    }
+
+    .st-green {
+        background-color: #27C24C;
+    }
+
+    .st-violet {
+        background-color: #7266ba;
+    }
+
+    .st-blue {
+        background-color: #23b7e5;
+    }
+
+    .stats .stat-icon {
+        color: #28bb9c;
+        display: inline-block;
+        font-size: 26px;
+        text-align: center;
+        vertical-align: middle;
+        width: 50px;
+        float: left;
+    }
+
+    .stat {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+    }
+
+    .stat .value {
+        font-size: 20px;
+        line-height: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 500;
+    }
+
+    .stat .name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 5px 0;
+    }
+
+    .stat.lg .value {
+        font-size: 26px;
+        line-height: 28px;
+    }
+
+    .stat-col {
+        margin:0 0 10px 0;
+    }
+    .stat.lg .name {
+        font-size: 16px;
+    }
+
+    .stat-col .progress {
+        height: 2px;
+    }
+
+    .stat-col .progress-bar {
+        line-height: 2px;
+        height: 2px;
+    }
+
+    .item {
+        padding: 30px 0;
+    }
+
+
+    #statistics .panel {
+        min-height: 150px;
+    }
+
+    #statistics .panel h5 {
+        font-size: 14px;
+    }
+</style>
+<div class="panel panel-default panel-intro">
+    <div class="panel-heading">
+        {:build_heading(null, false)}
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#one" data-toggle="tab">{:__('Dashboard')}</a></li>
+            <li><a href="#two" data-toggle="tab">{:__('Custom')}</a></li>
+        </ul>
+    </div>
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+
+
+
+                <div style="text-align: center;">{:__('endtime_text')}<font color="red" font-size="15px"><span id="countdown" class="countdown">00:00:00</span></font></div>
+                <div id="error" class="error"></div>
+
+                <div class="row">
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="sm-st clearfix">
+                            <span class="sm-st-icon st-red"><i class="fa fa-users"></i></span>
+                            <div class="sm-st-info">
+                                <span>{$totaluser|htmlentities}</span>
+                                {:__('Total user')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="sm-st clearfix">
+                            <span class="sm-st-icon st-violet"><i class="fa fa-magic"></i></span>
+                            <div class="sm-st-info">
+                                <span>{:__("recharge_text")}</span>
+                                <button class="btn btn-info" onclick="seecharge()">{:__('see_recharge_info')}</button><!--
+                                -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="sm-st clearfix">
+                            <span class="sm-st-icon st-blue"><i class="fa fa-leaf"></i></span>
+                            <div class="sm-st-info">
+                                <span>{$totalgroups}</span>
+                                {:__('groups')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="sm-st clearfix">
+                            <span class="sm-st-icon st-green"><i class="fa fa-user"></i></span>
+                            <div class="sm-st-info">
+                                <span>{$advlist}</span>
+                                {:__('advcount')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div id="echart" class="btn-refresh" style="height:300px;width:100%;"></div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card sameheight-item stats">
+                            <div class="card-block">
+                                <div class="row row-sm stats-container">
+                                    <div class="col-xs-6 stat-col">
+                                        <div class="stat-icon"><i class="fa fa-rocket"></i></div>
+                                        <div class="stat">
+                                            <div class="value"> {$todayusersignup|htmlentities}</div>
+                                            <div class="name"> {:__('Today user signup')}</div>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" style="width: 20%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 stat-col">
+                                        <div class="stat-icon"><i class="fa fa-vcard"></i></div>
+                                        <div class="stat">
+                                            <div class="value"> {$todayuserlogin|htmlentities}</div>
+                                            <div class="name"> {:__('Today user login')}</div>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" style="width: 20%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6  stat-col">
+                                        <div class="stat-icon"><i class="fa fa-calendar"></i></div>
+                                        <div class="stat">
+                                            <div class="value"> {$threednu|htmlentities}</div>
+                                            <div class="name"> {:__('Three dnu')}</div>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" style="width: 20%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 stat-col">
+                                        <div class="stat-icon"><i class="fa fa-calendar-plus-o"></i></div>
+                                        <div class="stat">
+                                            <div class="value"> {$sevendnu|htmlentities}</div>
+                                            <div class="name"> {:__('Seven dnu')}</div>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" style="width: 20%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6  stat-col">
+                                        <div class="stat-icon"><i class="fa fa-user-circle"></i></div>
+                                        <div class="stat">
+                                            <div class="value"> {$sevendau|htmlentities}</div>
+                                            <div class="name"> {:__('Seven dau')}</div>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" style="width: 20%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6  stat-col">
+                                        <div class="stat-icon"><i class="fa fa-user-circle-o"></i></div>
+                                        <div class="stat">
+                                            <div class="value"> {$thirtydau|htmlentities}</div>
+                                            <div class="name"> {:__('Thirty dau')}</div>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" style="width: 20%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top:15px;" id="statistics">
+
+                    <div class="col-lg-12">
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <div class="panel bg-blue-gradient no-border">
+                            <div class="panel-body">
+                                <div class="panel-title">
+                                    <span class="label label-primary pull-right">{:__('Real time')}</span>
+                                    <h5>{:__('DeliveryAdvList')}</h5>
+                                </div>
+                                <div class="panel-content">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h1 class="no-margins">{$DeliveryAdvList}</h1>
+                                            <div class="font-bold"><i class="fa fa-magic"></i>
+                                                <small>{:__('Working addon count tips')}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <div class="panel bg-teal-gradient no-border">
+                            <div class="panel-body">
+                                <div class="ibox-title">
+                                    <span class="label label-primary pull-right">{:__('Real time')}</span>
+                                    <h5>{:__('keywordinfo')}</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h1 class="no-margins">{$keycount}</h1>
+                                            <div class="font-bold"><i class="fa fa-database"></i>
+                                                <small>{:__('keywordcount')}</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h1 class="no-margins">{$keyAdvCount}</h1>
+                                            <div class="font-bold"><i class="fa fa-filter"></i>
+                                                <small>{:__('Bidding')}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6 col-md-3">
+                        <div class="panel bg-purple-gradient no-border">
+                            <div class="panel-body">
+                                <div class="ibox-title">
+                                    <span class="label label-primary pull-right">{:__('Real time')}</span>
+                                    <h5>{:__('Withdrawal')}</h5>
+                                </div>
+                                <div class="ibox-content">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h1 class="no-margins">{$PendingCount}</h1>
+                                            <div class="font-bold"><i class="fa fa-files-o"></i>
+                                                <small>{:__('Attachment nums')}</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h1 class="no-margins">{$PendingAmount}</h1>
+                                            <div class="font-bold"><i class="fa fa-filter"></i>
+                                                <small>{:__('Attachment size')}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <div class="panel bg-green-gradient no-border">
+                            <div class="panel-body">
+                                <div class="ibox-title">
+                                    <span class="label label-primary pull-right">{:__('Real time')}</span>
+                                    <h5>{:__('Picture count')}</h5>
+                                </div>
+                                <div class="ibox-content">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h1 class="no-margins">{$picturenums|htmlentities}</h1>
+                                            <div class="font-bold"><i class="fa fa-picture-o"></i>
+                                                <small>{:__('Picture nums')}</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h1 class="no-margins">{$picturesize|format_bytes=###,'',0}</h1>
+                                            <div class="font-bold"><i class="fa fa-filter"></i>
+                                                <small>{:__('Picture size')}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="two">
+                <div class="row">
+                    <div class="col-xs-12">
+                        {:__('Custom zone')}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    window.onload=function(){
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '{:url("dashboard/getupdate")}', true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var json = xhr.responseText;
+                if(json){
+                    var jsonArray = JSON.parse(json);
+                    swal({
+                        title: "{:__('Found a new version')}",
+                        text: jsonArray.text,
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    });
+                }
+            }
+        };
+        xhr.send();
+    }
+</script>
+
+
+<script>
+    // 获取DOM元素
+    const countdownElement = document.getElementById('countdown');
+    const errorElement = document.getElementById('error');
+
+    // 从后端获取结束时间
+    function fetchEndTime() {
+        fetch('{:url("index/gettime")}')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('{:__("internet_error")}');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    // 开始倒计时
+                    startCountdown(data.end_time);
+                } else {
+                    errorElement.textContent = data.message || '{:__("get_time_error")}1111';
+                }
+            })
+            .catch(error => {
+                errorElement.textContent = '{:__("get_time_error")}: ' + error.message;
+                console.error('Error:', error);
+            });
+    }
+
+    // 开始倒计时
+    function startCountdown(endTimeString) {
+        const endTime = new Date(endTimeString).getTime();
+
+        // 每秒更新倒计时
+        const timer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = endTime - now;
+
+            // 如果时间已到
+            if (distance < 0) {
+                clearInterval(timer);
+                countdownElement.textContent = "{:__('Update maintenance time has arrived')}";
+                return;
+            }
+
+            // 计算天、小时、分钟和秒
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // 显示倒计时
+            if (days > 0) {
+                countdownElement.textContent = `${days}{:__('day')} ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            } else {
+                countdownElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+        }, 1000);
+    }
+
+    // 页面加载时获取结束时间
+    document.addEventListener('DOMContentLoaded', fetchEndTime);
+</script>
+
+<script>
+    function seecharge(){
+        var string = "{:__('rechargeCount')}{$recharge.rechargeCount}\r\n" +
+            "{:__('rechargePaySuccessCount')}{$recharge.rechargePaySuccessCount}\r\n" +
+            "{:__('rechargeOrderAmountCount')}{$recharge.rechargeOrderAmountCount} USDT\r\n" +
+            "{:__('rechargeOrderPaySuccessAmountCount')}{$recharge.rechargeOrderPaySuccessAmountCount} USDT\r\n" +
+            "{:__('rechargePayAmountCount')}{$recharge.rechargePayAmountCount} USDT\r\n" +
+            "{:__('rechargePaySuccessAmountCount')}{$recharge.rechargePaySuccessAmountCount} USDT\r\n"+
+        "{:__('rechargeCountDay')}{$recharge.rechargeCountDay}\r\n" +
+        "{:__('rechargePaySuccessCountDay')}{$recharge.rechargePaySuccessCountDay}\r\n" +
+        "{:__('rechargeOrderAmountCountDay')}{$recharge.rechargeOrderAmountCountDay} USDT\r\n" +
+        "{:__('rechargeOrderPaySuccessAmountCountDay')}{$recharge.rechargeOrderPaySuccessAmountCountDay} USDT\r\n" +
+        "{:__('rechargePayAmountCountDay')}{$recharge.rechargePayAmountCountDay} USDT\r\n" +
+        "{:__('rechargePaySuccessAmountCountDay')}{$recharge.rechargePaySuccessAmountCountDay} USDT\r\n";
+        swal({
+            title: "{:__('see_recharge_info')}",
+            text: string,
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        });
+    }
+</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>phpSearch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .logo h1 {
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            background-color: #f8f8f8;
+            border: none;
+            color: #4285f4;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #results {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .result-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="logo">
+        <h1>Telegram Search</h1>
+    </div>
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="请输入搜索内容">
+        <button id="search-button">搜索</button>
+    </div>
+    <div id="results">
+    </div>
+</div>
+<script>
+    const data = [
+        { title: "文章一", content: "这是文章一的内容。" },
+        { title: "文章二", content: "这是关于文章二的一些信息。" },
+        { title: "产品介绍", content: "介绍我们的新产品。" }
+    ];
+
+    function performSearch() {
+        const searchTerm = document.getElementById('search-input').value.toLowerCase();
+        const resultsDiv = document.getElementById('results');
+        resultsDiv.innerHTML = '';
+
+        const searchResults = data.filter(item =>
+            item.title.toLowerCase().includes(searchTerm) || item.content.toLowerCase().includes(searchTerm)
+        );
+
+        searchResults.forEach(result => {
+            const resultItem = document.createElement('div');
+            resultItem.classList.add('result-item');
+            resultItem.innerHTML = `<h3>${result.title}</h3><p>${result.content}</p>`;
+            resultsDiv.appendChild(resultItem);
+        });
+    }
+
+    document.getElementById('search-button').addEventListener('click', performSearch);
+
+    document.getElementById('search-input').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            performSearch();
+        }
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+{"update_id":897348229,
+"message":{"message_id":1019,"from":{"id":1334896819,"is_bot":false,"first_name":"\u591a\u591a","last_name":"\u767e\u5b9d","username":"baibao","language_code":"zh-hans","is_premium":true},"chat":{"id":1334896819,"first_name":"\u591a\u591a","last_name":"\u767e\u5b9d","username":"baibao","type":"private"},"date":1747930043,"text":"/my","entities":[{"offset":0,"length":3,"type":"bot_command"}]}}

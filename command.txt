@@ -1,0 +1,11 @@
+php think queue:listen                //开启支付到期队列以及群组收录队列
+
+
+
+
+php think scoresystem           //评分算法
+php think tasksgroupmsg         //定时发送广告任务
+php think tasksgrouptop         //定时发送广告任务
+
+
+评分算法  定时发送广告任务   定时发送广告任务   自行到宝塔的计划任务里面添加执行的时间(think要写全路径，在项目根目录下)

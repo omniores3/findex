@@ -1,0 +1,100 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="panel-title">数据统计</span>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="info-box">
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">用户总数</span>
+                        <span class="info-box-number" id="user-count">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fa fa-shopping-cart"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">订单总数</span>
+                        <span class="info-box-number" id="order-count">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box">
+                    <span class="info-box-icon bg-yellow"><i class="fa fa-rmb"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">总收入</span>
+                        <span class="info-box-number" id="revenue">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">数据趋势图</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="chart">
+                            <canvas id="trendChart" style="height: 250px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(function() {
+    // 加载统计数据
+    $.ajax({
+        url: 'statistics/index',
+        type: 'get',
+        dataType: 'json',
+        success: function(res) {
+            if (res.data) {
+                $('#user-count').text(res.data.user_count);
+                $('#order-count').text(res.data.order_count);
+                $('#revenue').text('¥' + res.data.revenue.toLocaleString());
+                
+                // 初始化图表
+                initChart(res.data);
+            }
+        }
+    });
+    
+    function initChart(data) {
+        // 使用Chart.js创建图表
+        var ctx = document.getElementById('trendChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月'],
+                datasets: [{
+                    label: '用户增长',
+                    data: [120, 190, 300, 500, 700, 900, 1000],
+                    backgroundColor: 'rgba(60, 141, 188, 0.2)',
+                    borderColor: 'rgba(60, 141, 188, 1)',
+                    borderWidth: 1
+                }, {
+                    label: '订单增长',
+                    data: [50, 100, 200, 300, 400, 450, 500],
+                    backgroundColor: 'rgba(0, 166, 90, 0.2)',
+                    borderColor: 'rgba(0, 166, 90, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    }
+});
+</script>

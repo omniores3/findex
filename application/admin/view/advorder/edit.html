@@ -1,0 +1,51 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Advorderid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-advorderid" data-rule="required" class="form-control" name="row[advorderid]" type="text" value="{$row.advorderid|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Advtype')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-advtype" data-rule="required" class="form-control" name="row[advtype]" type="number" value="{$row.advtype|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Amount')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-amount" data-rule="required" class="form-control" step="0.0001" name="row[amount]" type="number" value="{$row.amount|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Buytime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-buytime" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[buytime]" type="text" value="{:$row.buytime?datetime($row.buytime):''}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Other')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-other" class="form-control " rows="5" name="row[other]" cols="50">{$row.other|htmlentities}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Paytype')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-paytype" class="form-control" name="row[paytype]" type="text" value="{$row.paytype|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Paytime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-paytime" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[paytime]" type="text" value="{:$row.paytime?datetime($row.paytime):''}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+        </div>
+    </div>
+</form>

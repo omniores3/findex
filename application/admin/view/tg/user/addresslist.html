@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>充值记录</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        /* 尽可能模仿 FastAdmin 风格 */
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            background-color: #fff;
+        }
+        .panel {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+            box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        }
+        .panel-default {
+            border-color: #ddd;
+        }
+        .panel-heading {
+            padding: 10px 15px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+        .panel-title {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 16px;
+            color: inherit;
+        }
+        .panel-body {
+            padding: 15px;
+        }
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+        .table > thead > tr > th,
+        .table > tbody > tr > th,
+        .table > tfoot > tr > th,
+        .table > thead > tr > td,
+        .table > tbody > tr > td,
+        .table > tfoot > tr > td {
+            padding: 8px;
+            line-height: 1.42857143;
+            vertical-align: top;
+            border-top: 1px solid #ddd;
+        }
+        .table > thead > tr > th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #ddd;
+        }
+        .table > caption + thead > tr:first-child > th,
+        .table > colgroup + thead > tr:first-child > th,
+        .table > thead:first-child > tr:first-child > th,
+        .table > caption + thead > tr:first-child > td,
+        .table > colgroup + thead > tr:first-child > td,
+        .table > thead:first-child > tr:first-child > td {
+            border-top: 0;
+        }
+        .table > tbody + tbody {
+            border-top: 2px solid #ddd;
+        }
+        .table .table {
+            background-color: #fff;
+        }
+        .form-inline .form-group {
+            margin-left: 0;
+            margin-right: 15px;
+        }
+
+        /* 分页样式 */
+        .pagination {
+            margin: 0;
+        }
+
+        .pagination > li > a,
+        .pagination > li > span {
+            position: relative;
+            float: left;
+            padding: 6px 12px;
+            margin-left: -1px;
+            line-height: 1.42857143;
+            color: #337ab7;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+        .pagination > li:first-child > a,
+        .pagination > li:first-child > span {
+            margin-left: 0;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .pagination > li:last-child > a,
+        .pagination > li:last-child > span {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .pagination > li > a:hover,
+        .pagination > li > span:hover,
+        .pagination > li > a:focus,
+        .pagination > li > span:focus {
+            color: #23527c;
+            background-color: #eee;
+            border-color: #ddd;
+        }
+
+        .pagination > .active > a,
+        .pagination > .active > span,
+        .pagination > .active > a:hover,
+        .pagination > .active > span:hover,
+        .pagination > .active > a:focus,
+        .pagination > .active > span:focus {
+            z-index: 2;
+            color: #fff;
+            background-color: #337ab7;
+            border-color: #337ab7;
+            cursor: default;
+        }
+
+        .pagination > .disabled > span,
+        .pagination > .disabled > span:hover,
+        .pagination > .disabled > span:focus,
+        .pagination > .disabled > a,
+        .pagination > .disabled > a:hover,
+        .pagination > .disabled > a:focus {
+            color: #777;
+            background-color: #fff;
+            border-color: #ddd;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">{:__('addresslist')}</h3>
+            </div>
+            <div class="panel-body">
+                <!-- 查询表单 -->
+                <form action="" method="get" class="form-inline">
+
+                    <div class="form-group">
+                        <label for="status">{:__('status')}:</label>
+                        <select class="form-control" id="status" name="status">
+                            <option value="">{:__('all')}</option>
+                            <option value="-1" {if condition="$Request.get.status eq '-1'"}selected{/if}>{:__('addresslist_lang')['-1']}</option>
+                            <option value="0" {if condition="$Request.get.status eq '0'"}selected{/if}>{:__('addresslist_lang')['0']}</option>
+                            <option value="1" {if condition="$Request.get.status eq '1'"}selected{/if}>{:__('addresslist_lang')['1']}</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">{:__('query')}</button>
+                </form>
+
+                <!-- 表格 -->
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>{:__('user_id')}</th>
+                            <th>{:__('address')}</th>
+                            <th>{:__('network')}</th>
+                            <th>{:__('photo')}</th>
+                            <th>{:__('status')}</th>
+                            <th>{:__('Create_time')}</th>
+                            <th>{:__('updatetime')}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {volist name="list" id="item"}
+                        <tr>
+                            <td>{$item.id}</td>
+                            <td>{$item.user_id}</td>
+                            <td>{$item.address}</td>
+                            <td>{$item.network}</td>
+                            <td>
+                                {if condition="$item.photo eq ''"}
+                                {else}
+                                <a href="{$item.photo}" target="_blank"><img src="{$item.photo}" width="10%" height="10%"/></a>
+                                {/if}
+                            </td>
+                            <td>
+                                <span class="btn btn-info btn-xs btn-detail">{:__('addresslist_lang')[$item.status]}</span>
+                            </td>
+                            <td>{$item.createtime|date='Y-m-d H:i:s',###}</td>
+                            <td>{$item.updatetime|date='Y-m-d H:i:s',###}</td>
+                        </tr>
+                        {/volist}
+                    </tbody>
+                </table>
+
+                <!-- 分页 -->
+                <div class="pull-right">
+                    {$page}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

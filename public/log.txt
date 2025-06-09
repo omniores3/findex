@@ -1,0 +1,2 @@
+{"update_id":568351257,
+"message":{"message_id":1094,"from":{"id":7809061455,"is_bot":false,"first_name":"\u674e\u6668","username":"leechan168","language_code":"zh-hans","is_premium":true},"chat":{"id":7809061455,"first_name":"\u674e\u6668","username":"leechan168","type":"private"},"date":1748035071,"text":"/start","entities":[{"offset":0,"length":6,"type":"bot_command"}]}}

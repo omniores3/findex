@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MarkDown</title>
+    <link href="https://cdn.jsdelivr.net/npm/cherry-markdown@0.9.2/dist/cherry-markdown.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="markdown-container"></div>
+<script src="https://cdn.jsdelivr.net/npm/cherry-markdown@0.9.2/dist/cherry-markdown.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+
+    /**
+     * 自定义一个自定义菜单按钮
+     * 点第一次时，把选中的文字变成同时加粗和斜体
+     * 保持光标选区不变，点第二次时，把加粗斜体的文字变成普通文本
+     */
+    var customMenuA = Cherry.createMenuHook('加粗斜体',  {
+        iconName: 'font',
+        onClick: function(selection) {
+            // 获取用户选中的文字，调用getSelection方法后，如果用户没有选中任何文字，会尝试获取光标所在位置的单词或句子
+            let $selection = this.getSelection(selection) || '同时加粗斜体';
+
+            // 如果是单选，并且选中内容的开始结束内没有加粗斜体语法，则尝试扩大选中范围
+            if (!this.isSelections && !/^\s*(\*\*\*)[\s\S]+(\1)/.test($selection)) {
+                this.getMoreSelection('***', '***', () => {
+                    // 调用codemirror的api获取当前选中的文本
+                    const newSelection = this.editor.editor.getSelection();
+                    // 判断是否已经是加粗斜体语法了
+                    const isBoldItalic = /^\s*(\*\*\*)[\s\S]+(\1)/.test(newSelection);
+                    if (isBoldItalic) {
+                        $selection = newSelection;
+                    }
+                    return isBoldItalic;
+                });
+            }
+
+            // 如果选中的文本中已经有加粗语法了，则去掉加粗语法
+            if (/^\s*(\*\*\*)[\s\S]+(\1)/.test($selection)) {
+                // return $selection.replace(/(^)(\s*)(\*\*\*)([^\n]+)(\3)(\s*)($)/gm, '$1$4$7');  // 这个正则主要是为了支持多行，可以忽略
+                return $selection.replace(/^\*\*\*/, '').replace(/\*\*\*$/, '');
+            }
+
+            /**
+             * 注册缩小选区的规则
+             *    注册后，插入“***TEXT***”，选中状态会变成“***【TEXT】***”
+             *    如果不注册，插入后选中效果为：“【***TEXT***】”
+             */
+            this.registerAfterClickCb(() => {
+                this.setLessSelection('***', '***');
+            });
+            // 增加加粗斜体语法
+            // return $selection.replace(/(^)([^\n]+)($)/gm, '$1***$2***$3');  // 这个正则主要是为了支持多行，可以忽略
+            return `***${$selection}***`;
+        }
+    });
+
+    /**
+     * 自定义一个空壳自定义按钮
+     */
+    var customMenuB = Cherry.createMenuHook('实验室',  {
+        iconName: '',
+    });
+
+    /**
+     * 自定义一个带二级菜单的自定义按钮
+     */
+    var customMenuC = Cherry.createMenuHook('帮助中心',  {
+        iconName: 'question',
+        subMenuConfig: [
+            { noIcon: true, name: '快捷键', onclick: (event)=>{return cherry.insert('快捷键看这里：https://codemirror.net/5/demo/sublime.html');} },
+            { noIcon: true, name: '联系我们', onclick: (event)=>{return cherry.insert('我们在这里：https://github.com/Tencent/cherry-markdown');} },
+            { noIcon: true, name: '更新日志', onclick: (event)=>{return cherry.insert('我们在这里：https://github.com/Tencent/cherry-markdown/releases');} },
+        ]
+    });
+
+    new Cherry({
+        id: 'markdown-container',
+        value: '## hello world',
+        toolbars: {
+            // 定义顶部工具栏
+            toolbar: [
+                'undo', 'redo', '|',
+                // 把字体样式类按钮都放在加粗按钮下面
+                {bold:['bold', 'italic', 'underline', 'strikethrough', 'sub', 'sup', 'ruby', 'bold&italic']},
+                'color', 'size', '|', 'header', 'list', 'panel', '|',
+                // 把插入类按钮都放在插入按钮下面
+                {insert: ['image', 'audio', 'video', 'link', 'hr', 'br', 'code', 'formula', 'toc', 'table', 'drawIo']},
+                'graph', '|',
+                // 把自定义按钮放进来
+                {lab: ['drawIo', 'ruby', 'bold&italic']}, 'help'
+            ],
+            // 定义侧边栏，默认为空
+            sidebar: ['theme', 'mobilePreview', 'copy'],
+            // 定义顶部右侧工具栏，默认为空
+            toolbarRight: ['fullScreen', 'export'],
+            // 定义选中文字时弹出的“悬浮工具栏”，默认为 ['bold', 'italic', 'underline', 'strikethrough', 'sub', 'sup', 'quote', '|', 'size', 'color']
+            bubble: ['bold', 'italic', 'underline', 'strikethrough', 'sub', 'sup', 'ruby', '|', 'color','size',],
+            // 定义光标出现在行首位置时出现的“提示工具栏”，默认为 ['h1', 'h2', 'h3', '|', 'checklist', 'quote', 'table', 'code']
+            float: ['table', 'code', 'graph'],
+            // 声明自定义按钮
+            customMenu: {
+                'bold&italic': customMenuA,
+                lab: customMenuB,
+                help: customMenuC,
+            },
+        },
+    });
+
+
+
+    /*new Cherry({
+        id: 'markdown-container',
+        toolbar: true,
+        preview: true,
+        value: '# welcome to cherry editor!',
+        engine: {
+            syntax: {
+                table: { enableChart: true } // 开启表格转图表
+            }
+        }
+
+    });*/
+</script>
+</body>
+</html>

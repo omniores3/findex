@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'Custom'                   => '自定义',
+    'Pid'                      => '父ID',
+    'Type'                     => '栏目类型',
+    'Image'                    => '图片',
+    'Total user'               => '总会员数',
+    'Total addon'              => '总插件数',
+    'Total category'           => '总分类数',
+    'Total attachment'         => '总附件数',
+    'Total admin'              => '总管理员数',
+    'Today user signup'        => '今日注册',
+    'Today user login'         => '今日登录',
+    'Today order'              => '今日订单',
+    'Unsettle order'           => '未处理订单',
+    'Three dnu'                => '三日新增',
+    'Seven dnu'                => '七日新增',
+    'Seven dau'                => '七日活跃',
+    'Thirty dau'               => '月活跃',
+    'Custom zone'              => '这里是你的自定义数据',
+    'Register user'            => '注册用户数',
+    'Real time'                => '实时',
+    'Category count'           => '分类统计',
+    'Working addon count'      => '运行中的插件',
+    'Category count tips'      => '当前分类总记录数',
+    'Working addon count tips' => '除关键词及品牌词的所有已投放',
+    'Database count'           => '数据库统计',
+    'Database table nums'      => '数据表数量',
+    'Database size'            => '占用空间',
+    'Attachment count'         => '附件统计',
+    'Attachment nums'          => '待处理数量',
+    'Attachment size'          => '待处理金额',
+    'Attachment count tips'    => '当前上传的附件数量',
+    'Picture count'            => '图片统计',
+    'Picture nums'             => '图片数量',
+    'Picture size'             => '图片大小',
+    'Server info'              => '服务器信息',
+    'PHP version'              => 'PHP版本',
+    'Sapi name'                => '运行方式',
+    'Debug mode'               => '调试模式',
+    'Software'                 => '环境信息',
+    'Upload mode'              => '上传模式',
+    'Upload url'               => '上传URL',
+    'Upload cdn url'           => '上传CDN',
+    'Cdn url'                  => '静态资源CDN',
+    'Timezone'                 => '时区',
+    'Language'                 => '语言',
+    'View more'                => '查看更多',
+
+    'rechargeCount'      => "总充值订单:",
+
+    'recharge_text'      => "充值订单",
+
+    'rechargePaySuccessCount' => '总支付成功订单:',
+    'see_recharge_info'    =>  '查看订单统计',
+    'rechargeOrderAmountCount' => "总下单金额:",
+    'rechargeOrderPaySuccessAmountCount' => '总下单支付成功金额:',
+    'rechargePayAmountCount' => '总支付金额:',
+    'rechargePaySuccessAmountCount' => '总支付成功金额:',
+
+    'rechargeCountDay'      => "今日总充值订单:",
+    'rechargePaySuccessCountDay' => '今日总支付成功订单:',
+    'rechargeOrderAmountCountDay' => "今日总下单金额:",
+    'rechargeOrderPaySuccessAmountCountDay' => '今日总下单支付成功金额:',
+    'rechargePayAmountCountDay' => '今日总支付金额:',
+    'rechargePaySuccessAmountCountDay' => '今日总支付成功金额:',
+
+    'groups'  =>  '总群组数',
+
+    'advcount' => '广告总数',
+
+    'DeliveryAdvList' => '总投放广告总数',
+
+    'keywordinfo' => '关键词信息',
+
+    'keywordcount' => '总关键词数量',
+
+    'Bidding' => '参与竞拍',
+
+    'Withdrawal' => '提现信息',
+];

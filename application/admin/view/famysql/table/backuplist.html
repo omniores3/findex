@@ -1,0 +1,41 @@
+<div class="panel panel-default panel-intro">
+    {if $group == null}
+    <div class="panel-heading">
+        {:build_heading(null,FALSE)}        
+        <ul class="nav nav-tabs nav-addon">
+            <li class="active"><a href="javascript:;" data-id="">{:__('All')}</a></li>
+        </ul>        
+    </div>
+    {/if}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div id="toolbar" class="toolbar">
+                        <a href="javascript:;" class="btn btn-primary btn-refresh" title="{:__('Refresh')}" data-force-refresh="false"><i class="fa fa-refresh"></i> </a>
+                        {if $auth->check('famysql/table/backup')}
+                        <a href="{:url('famysql.table/backup',['group'=>$group])}" class="btn btn-success btn-backup btn-dialog" data-area='["80%","80%"]' title="{:__('Backup and Restore')}"><i class="fa fa-compress"></i> {:__('Backup now')}</a>
+                        {/if}
+
+                        {if $auth->check('famysql/table/upload')}
+                        <form style="width: 110px; display: inline-block;" class="form-inline" role="form"><button type="button" id="faupload-local" class="btn btn-primary faupload" data-input-id="c-local" data-url="{:url('famysql.table/upload',['group'=>$group])}" data-mimetype="zip,sql"><i class="fa fa-upload"></i> {:__("从本地上传")}</button></form>
+                        {/if}                                                
+                                               
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-info btn-switch active btn-mini-xs" data-type="all">{:__('全部')}</a>
+                            <a href="#" class="btn btn-info btn-switch btn-mini-xs" data-type="0">{:__('结构唯一')}</a>
+                            <a href="#" class="btn btn-info btn-switch btn-mini-xs" data-type="1">{:__('仅有数据')}</a>
+                            <a href="#" class="btn btn-info btn-switch btn-mini-xs" data-type="2">{:__('结构和数据')}</a>
+                        </div>
+                    </div>
+                    <table id="table" class="table table-striped table-bordered table-hover" width="100%">
+
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

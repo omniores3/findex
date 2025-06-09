@@ -1,0 +1,164 @@
+{include file="common/meta" /}
+<div class="pd-container">
+    <div class="pd-content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">{:__('viewOrders')}</h3>
+                    </div>
+                    <div class="box-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>ID</th>
+                                <td>{$data.id}</td>
+                            </tr>
+                            <tr>
+                                <th>{:__('Advorderid')}</th>
+                                <td>
+                                    {$data.advorderid} &nbsp;<button class="btn fuzhi" data-clipboard-text="{$data.advorderid}">{:__('copy text')}</button>&nbsp;
+                                    <button class="btn btn-info btn-xs btn-detail" onclick="viewOrderInfos({$data.advorderid})"><i class="fa fa-eye"></i> {:__('SeeOrderInfos')}</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>{:__('Advtype')}</th>
+                                <td>{:__("advtype_lang")[$data.advtype]}</td>
+                            </tr>
+                            <tr>
+                                <th>{:__('User_id')}</th>
+                                <td>{$user.tnick}(<a href="https://t.me/{$user.tusername}" target="_blank">{$user.tusername}</a>) &nbsp;
+                                    <button class="btn btn-primary btn-xs btn-sendmsg" onclick="sendMessagess({$data.user_id})"><i class="fa fa-send"></i> {:__('Send Message')}</button>
+                                    <button class="btn btn-info btn-xs btn-detail" onclick="viewUsers({$data.user_id})"><i class="fa fa-eye"></i> {:__('SeeUserInfo')}</button>
+                                    &nbsp;<button class="btn fuzhi" data-clipboard-text="{$user.tid}">{:__('copy tid')}</button>
+                                    &nbsp;<button class="btn fuzhi" data-clipboard-text="{$user.tusername}">{:__('copy username')}</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>{:__('Amount')}</th>
+                                <td> <span class="btn btn-info btn-xs btn-detail">{$data.amount} &nbsp;USD</span></td>
+                            </tr>
+                            <tr>
+                                <th>{:__('Buytime')}</th>
+                                <td> <span class="btn btn-info btn-xs btn-detail">{$data.buytime} {:__("yues")}</span></td>
+                            </tr>
+                            <tr>
+                                <th>{:__('Other')}</th>
+                                <td>{$data.other}</td>
+                            </tr>
+                            <tr>
+                                <th>{:__('paytype')}</th>
+                                <td>{:__("pay_type_lang")[$data.paytype]} </td>
+                            </tr>
+                            <tr>
+                                <th>{:__('createtime')}</th>
+                                <td>{$data.createtime|date="Y-m-d H:i:s",###}</td>
+                            </tr>
+                            <tr>
+                                <th>{:__('Paytime')}</th>
+                                <td>
+                                    {if condition="$data.paytime eq ''"}
+                                    {else}
+                                    {$data.paytime|date="Y-m-d H:i:s",###}
+                                    {/if}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    function sendMessagess(id) {
+        layer.open({
+            type: 2,
+            title: __("sendMessage"),
+            shadeClose: true,
+            shade: 0.8,
+            area: ['800px', '600px'],
+            content: '{:url("tg/user/sendMessage")}?id=' + id
+        });
+    }
+
+
+
+    function viewUsers(id) {
+        layer.open({
+            type: 2,
+            title: __("userinfo"),
+            shadeClose: true,
+            shade: 0.8,
+            area: ['100%', '100%'],
+            content: "{:url('tg/user/detail')}?id=" + id
+        });
+    }
+    function setOrderSuccess(id,status){
+        if("1" === status){
+            layer.alert(__('Status_error'));
+            return;
+        }
+        let isBound = false;
+        layer.confirm(__('Confirm_Change_Status'),{
+            btn: [__('submit'),__('clone')] //按钮
+        }, function(remark, index) {
+            if(!isBound) {
+                $.post('recharge/setsuccess', {
+                    id: id
+                }, function (res) {
+                    layer.msg(res.msg);
+                    if (res.code == 1) {
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1000);
+                    }
+                }, 'json');
+            }
+            isBound = true;
+            layer.close(index);
+        });
+    }
+
+    //撤销已支付订单
+    function Revocation(id,status){
+        if("1" != status){
+            layer.alert(__('Status_error'));
+            return;
+        }
+        let isBound = false;
+        layer.confirm(__('Confirm_Change_Status'),{
+            btn: [__('submit'),__('clone')] //按钮
+        }, function(remark, index) {
+            if(!isBound) {
+                $.post('recharge/revocation', {
+                    id: id,
+                }, function (res) {
+                    layer.msg(res.msg);
+                    if (res.code == 1) {
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1000);
+                    }
+                }, 'json');
+            }
+            isBound = true;
+            layer.close(index);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        var clipboard = new ClipboardJS('.fuzhi');
+
+        clipboard.on('success', function(e) {
+            layer.msg("{:__('copy success')}");
+            // 可以添加用户反馈，如弹窗提示复制成功
+            e.clearSelection(); // 清除选中的内容
+        });
+
+        clipboard.on('error', function(e) {
+            console.log('复制失败');
+            // 可以添加用户反馈，如弹窗提示复制失败
+        });
+    });
+</script>
+<script src="__CDN__/assets/js/clipboard.min.js"></script>

@@ -1,0 +1,69 @@
+{
+    "name": "fastadminnet/fastadmin",
+    "description": "the fastest admin framework",
+    "type": "project",
+    "keywords": [
+        "fastadmin",
+        "thinkphp"
+    ],
+    "homepage": "https://www.fastadmin.net/",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Karson",
+            "email": "karson@fastadmin.net"
+        }
+    ],
+    "require": {
+        "php": ">=7.4.0",
+        "topthink/framework": "dev-master",
+        "topthink/think-captcha": "^1.0.9",
+        "topthink/think-installer": "^1.0.14",
+        "topthink/think-queue": "1.1.6",
+        "topthink/think-helper": "^1.0.7",
+        "fastadminnet/fastadmin-addons": "~1.4.0",
+        "fastadminnet/fastadmin-mailer": "^2.0.0",
+        "overtrue/pinyin": "^3.0",
+        "phpoffice/phpspreadsheet": "^1.29.1",
+        "overtrue/wechat": "^4.6",
+        "ext-json": "*",
+        "ext-curl": "*",
+        "ext-pdo": "*",
+        "ext-bcmath": "*",
+        "zircote/swagger-php": "^5.1",
+        "manticoresoftware/manticoresearch-php": "dev-master",
+        "telegram-bot/api": "^2.5",
+        "league/flysystem-aws-s3-v3": "^3.29",
+        "studio-42/elfinder": "^2.1",
+        "fukuball/jieba-php": "^0.34.0",
+        "meilisearch/meilisearch-php": "^1.14",
+        "guzzlehttp/guzzle": "^7.9",
+        "http-interop/http-factory-guzzle": "^1.0",
+        "php-amqplib/php-amqplib": "^2.8",
+        "firebase/php-jwt": "^6.11"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "topthink/think-installer": true,
+            "easywechat-composer/easywechat-composer": true,
+            "php-http/discovery": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "addons\\": "addons/",
+            "addons\\crontab\\library\\": "library/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://gitee.com/fastadminnet/framework.git"
+        },
+        {
+            "type": "git",
+            "url": "https://gitee.com/fastadminnet/think-captcha.git"
+        }
+    ]
+}

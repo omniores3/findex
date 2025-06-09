@@ -1,0 +1,52 @@
+{include file="common/meta" /}
+<div class="pd-container">
+    <div class="pd-content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">发送消息</h3>
+                    </div>
+                    <div class="box-body">
+                        <form class="form-horizontal" id="message-form">
+                            <input type="hidden" name="id" value="{$id}">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">接收用户</label>
+                                <div class="col-sm-10">
+                                    <p class="form-control-static">{$user.tnick} <a href="https://t.me/{$user.tusername}" target="_blank">(@{$user.tusername})</a> {$user.tid}</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">消息内容</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" name="message" rows="10" placeholder="请输入消息内容..."></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="box-footer">
+                        <button type="button" class="btn btn-primary pull-right" onclick="submitMessage()">发送</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function submitMessage() {
+    var form = $('#message-form');
+    var data = form.serialize();
+    
+    $.post('{:url("tg/user/sendMessage?id=") . $id}', data, function(res) {
+        if (res.code == 1) {
+            layer.msg(res.msg, {icon: 1}, function() {
+                //parent.layer.closeAll();
+                //parent.location.reload();
+            });
+        } else {
+            layer.msg(res.msg, {icon: 2});
+        }
+    }, 'json');
+}
+</script>

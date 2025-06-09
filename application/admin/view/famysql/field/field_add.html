@@ -1,0 +1,114 @@
+<form id="field_add-form" class="field_add-form form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+	<div class="panel-heading"><div class="panel-lead text-red"><b>温馨提示：</b>增加字段后，需要重新生成CRUD，不然新增加的字段不会生效！</div></div>
+	<div class="form-group">
+		<label class="control-label col-xs-12 col-sm-2">{:__('Name')}：</label>
+		<div class="col-xs-12 col-sm-8">
+			<input id="c-name" data-rule="required" class="form-control" placeholder="{:__('Name placeholder')}" name="row[name]" type="text" />
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-xs-12 col-sm-2">{:__('Suffix')}：</label>
+		<div class="col-xs-12 col-sm-8">
+			<!--给select一个固定的高度-->
+			<select id="field-suffix" class="form-control  form-selection" name="row[suffix]" style="height:31px;">
+				<option>无</option>
+				{foreach name="suffixList" item="vo"}
+                <option value="{$vo}">{$vo}</option>
+                {/foreach}
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-xs-12 col-sm-2">{:__('Type')}：</label>
+		<div class="col-xs-12 col-sm-8">
+			<input id="c-type" data-rule="required" class="form-control selectpage"
+				data-source="famysql/field/getType" data-field="type" data-primary-key="type" name="row[type]" type="text" value="">			
+		</div>
+	</div>
+
+	<div class="form-group form-input-basic hidden">
+		<label class="control-label col-xs-12 col-sm-2">{:__('Length')}：</label>
+		<div class="col-xs-12 col-sm-8">
+			<table class="table fieldlist" data-template="basictpl" data-name="row[length]">
+				<tr>
+					<td>{:__('Set vlaue')}</td>
+				</tr>
+				<tr>
+					<td colspan="1"><a href="javascript:;" class="btn btn-sm btn-success btn-append"><i class="fa fa-plus"></i> {:__('Append')}</a></td>
+				</tr>
+			</table>
+
+			<!--请注意实际开发中textarea应该添加个hidden进行隐藏-->
+			<textarea name="row[length]" class="form-control hidden" disabled cols="30" rows="5">[]</textarea>
+			<script id="basictpl" type="text/html">
+				<tr class="form-inline">
+					<td><input type="text" name="<%=name%>[<%=index%>][vo]" class="form-control" size="15" value="<%=row.vo%>" placeholder="{:__('Set vlaue')}"/></td>
+					<td>
+						<!--下面的两个按钮务必保留-->
+						<span class="btn btn-sm btn-danger btn-remove"><i class="fa fa-times"></i></span>
+						<span class="btn btn-sm btn-primary btn-dragsort"><i class="fa fa-arrows"></i></span>
+					</td>
+				</tr>
+			</script>
+		</div>
+	</div>
+
+	<div class="form-group form-input-length">
+		<label class="control-label col-xs-12 col-sm-2">{:__('Length')}：</label>
+		<div class="col-xs-12 col-sm-8">
+			<input id="c-length" data-rule="required" class="form-control" placeholder="{:__('Length placeholder')}" name="row[length]" type="text" />
+		</div>
+	</div>
+
+	<div class="form-group form-input-default">
+		<label class="control-label col-xs-12 col-sm-2">{:__('Default')}：</label>
+		<div class="col-xs-12 col-sm-8">
+			<input id="c-default" data-rule="" class="form-control" placeholder="{:__('Default placeholder')}" name="row[default]" type="text" />
+		</div>
+	</div>
+
+	<div class="form-group form-input-is_null">
+		<label class="control-label col-xs-12 col-sm-2">{:__('Is_null')}：</label>
+		<div class="col-xs-12 col-sm-8">
+			{:build_radios('row[is_null]', ['1'=>'否','0'=>'是'])}
+		</div>
+	</div>
+
+	<div class="form-group form-input-unsigned hidden">
+		<label class="control-label col-xs-12 col-sm-2">{:__('Unsigned')}：</label>
+		<div class="col-xs-12 col-sm-8">
+			{:build_radios('row[unsigned]', ['0'=>'否','1'=>'是'])}
+		</div>
+	</div>
+
+	<div class="form-group form-input-zerofill hidden">
+		<label class="control-label col-xs-12 col-sm-2">{:__('Zerofill')}：</label>
+		<div class="col-xs-12 col-sm-8">
+			{:build_radios('row[zerofill]', ['0'=>'否','1'=>'是'])}
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-xs-12 col-sm-2">{:__('Comment')}：</label>
+		<div class="col-xs-12 col-sm-8">
+			<input id="c-comment"  class="form-control" placeholder="{:__('Comment placeholder')}" name="row[comment]" type="text" />
+		</div>
+	</div>
+
+	<div class="form-group form-input-remark hidden">
+		<label class="control-label col-xs-12 col-sm-2">{:__('Remark')}：</label>
+		<div class="col-xs-12 col-sm-8">
+			<input id="c-remark"  class="form-control" readonly disabled placeholder="{:__('Remark placeholder')}" name="row[remark]" type="text" />
+		</div>
+	</div>
+
+	<div class="form-group layer-footer">
+		<label class="control-label col-xs-12 col-sm-2"></label>
+		<div class="col-xs-12 col-sm-8">
+			<button type="submit" class="btn btn-success btn-embossed ">{:__('OK')}</button>
+			<button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+		</div>
+	</div>
+</form>

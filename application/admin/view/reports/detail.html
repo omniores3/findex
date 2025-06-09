@@ -1,0 +1,329 @@
+{include file="common/meta" /}
+<style>
+    .media-list-popup {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start; /* 左对齐 */
+    }
+
+    .media-item {
+        width: 150px;
+        height: 150px;
+        margin: 5px;
+        border: 1px solid #eee;
+        text-align: center;
+        cursor: pointer; /* 鼠标悬停时显示手型 */
+    }
+
+    .media-item img,
+    .media-item video {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+</style>
+<div class="pd-container">
+    <div class="pd-content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">{:__('viewReport')}</h3>
+                    </div>
+                    <div class="box-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>ID</th>
+                                <td>{$data.id}</td>
+                            </tr>
+                            <tr>
+                                <th>{:__('Report')}</th>
+                                <td>{$report.title}</td>
+                            </tr>
+                            <tr>
+                                <th>{:__('Text')}</th>
+                                <td>{$data.text}</td>
+                            </tr>
+                            <tr>
+                                <th>{:__('Files')}</th>
+                                <td>
+                                    <a href="{$data.files}" target="_blank" class="btn btn-sm">{:__('see_reports_list')}</a>
+                                    <!--<a href="javascript:;" class="btn btn-sm media-list-link" data-files="{$data.files}">{:__('see_reports_list')}</a>-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>{:__('User_id')}</th>
+                                <td>{$user.tnick}(<a href="https://t.me/{$user.tusername}" target="_blank">{$user.tusername}</a>) &nbsp;
+                                    <button class="btn btn-primary btn-xs btn-sendmsg" onclick="sendMessagess({$user.id})"><i class="fa fa-send"></i> {:__('Send Message')}</button>
+                                    <button class="btn btn-info btn-xs btn-detail" onclick="viewUsers({$user.id})"><i class="fa fa-eye"></i> {:__('SeeUserInfo')}</button>
+                                    &nbsp;<button class="btn fuzhi" data-clipboard-text="{$user.tid}">{:__('copy tid')}</button>
+                                    &nbsp;<button class="btn fuzhi" data-clipboard-text="{$user.tusername}">{:__('copy username')}</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>{:__('Group_info')}</th>
+                                <td>
+
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th>{:__('group_search_id')}</th>
+                                            <td>{$group.id} &nbsp; <button class="btn fuzhi" data-clipboard-text="{$group.id}">{:__('copy group_search_id')}</button></td>
+                                        </tr>
+                                        <tr>
+                                            <th>{:__('group_id')}</th>
+                                            <td>{$group.group} &nbsp; <button class="btn fuzhi" data-clipboard-text="{$group.group}">{:__('copy group_id')}</button></td>
+                                        </tr>
+                                        <tr>
+                                            <th>{:__('group_name')}</th>
+                                            <td>{$group.groupname} &nbsp; <button class="btn fuzhi" data-clipboard-text="{$group.groupname}">{:__('copy group_name')}</button></td>
+                                        </tr>
+                                        <tr>
+                                            <th>{:__('group_groupusername')}</th>
+                                            <td><a href="https://t.me/{$group.groupusername}" target="_blank">@{$group.groupusername}</a> &nbsp; <button class="btn fuzhi" data-clipboard-text="{$group.groupusername}">{:__('copy group_username')}</button></td>
+                                        </tr>
+                                        <tr>
+                                            <th>{:__('groupcontent')}</th>
+                                            <td>{$group.groupcontent}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{:__('grouptype')}</th>
+                                            <td>{$group.grouptype}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{:__('groupcount')}</th>
+                                            <td>{$group.groupcount}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{:__('group_status')}</th>
+                                            <td>{$group.status}</td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <th>{:__('status')}</th>
+                                <td><span class="btn btn-info btn-xs btn-detail">{:__('Status '.$data['status'])}</span>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-warning btn-xs dropdown-toggle" data-toggle="dropdown">
+                                            {:__('Status Management')} <span class="caret"></span>
+                                            </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="javascript:;" class="btn-balance" onclick="setblack({$data.id})">{:__('Set black')}</a></li>
+                                            <li><a href="javascript:;" class="btn-balance" onclick="setturn({$data.id})">{:__('Set turn')}</a></li>
+                                            <li><a href="javascript:;" class="btn-balance" onclick="auditsuccess({$data.id})">{:__('Set success')}</a></li>
+                                            </ul>
+                                        </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>{:__('Message')}</th>
+                                <td>{$data.message}  </td>
+                            </tr>
+
+                            <tr>
+                                <th>{:__('createtime')}</th>
+                                <td>{$data.createtime|date="Y-m-d H:i:s",###}</td>
+                            </tr>
+                            <tr>
+                                <th>{:__('Updatetime')}</th>
+                                <td>
+                                    {if condition="$data.updatetime eq ''"}
+                                    {else}
+                                    {$data.updatetime|date="Y-m-d H:i:s",###}
+                                    {/if}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    function sendMessagess(id) {
+        layer.open({
+            type: 2,
+            title: __("sendMessage"),
+            shadeClose: true,
+            shade: 0.8,
+            area: ['800px', '600px'],
+            content: '{:url("tg/user/sendMessage")}?id=' + id
+        });
+    }
+
+
+
+    function viewUsers(id) {
+        layer.open({
+            type: 2,
+            title: __("userinfo"),
+            shadeClose: true,
+            shade: 0.8,
+            area: ['100%', '100%'],
+            content: "{:url('tg/user/detail')}?id=" + id
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var clipboard = new ClipboardJS('.fuzhi');
+
+        clipboard.on('success', function(e) {
+            layer.msg("{:__('copy success')}");
+            // 可以添加用户反馈，如弹窗提示复制成功
+            e.clearSelection(); // 清除选中的内容
+        });
+
+        clipboard.on('error', function(e) {
+            console.log('复制失败');
+            // 可以添加用户反馈，如弹窗提示复制失败
+        });
+    });
+
+    function setblack(id,status) {
+        if (-2 === status || 1 === status) {
+            layer.alert(__('Status_error'));
+            return;
+        }
+        let isBound = false;
+        layer.confirm(__('Confirm_Change_Status_setblack'), {
+            btn: [__('submit'), __('clone')] //按钮
+        }, function (remark, index) {
+            if (!isBound) {
+                $.post('reports/setblack', {
+                    id: id
+                }, function (res) {
+                    layer.msg(res.msg);
+                    if (res.code == 1) {
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1000);
+                    }
+                }, 'json');
+            }
+            isBound = true;
+            layer.close(index);
+        });
+    }
+
+    function setturn(id,status){
+        if(-2 === status || -1 === status || 1 === status){
+            layer.alert(__('Status_error'));
+            return;
+        }
+        let isBound = false;
+        layer.prompt({
+            title: __("input_text_message_turn"),
+            formType: 2
+        }, function(remark, index2) {
+            if(!isBound) {
+                $.post('reports/setturn', {
+                    id: id,
+                    remark: remark
+                }, function (res) {
+                    layer.msg(res.msg);
+                    if (res.code == 1) {
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1000);
+                    }
+                }, 'json');
+            }
+            isBound = true;
+            layer.close(index2);
+        });
+    }
+
+
+    function setsuccess(id,status){
+        if (-2 === status || 1 === status) {
+            layer.alert(__('Status_error'));
+            return;
+        }
+        let isBound = false;
+        layer.confirm(__('Confirm_Change_Status_setsuccess'), {
+            btn: [__('submit'), __('clone')] //按钮
+        }, function (remark, index) {
+            if (!isBound) {
+                $.post('reports/setsuccess', {
+                    id: id
+                }, function (res) {
+                    layer.msg(res.msg);
+                    if (res.code == 1) {
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1000);
+                    }
+                }, 'json');
+            }
+            isBound = true;
+            layer.close(index);
+        });
+    }
+
+
+    window.onload = function(){
+        $(document).on('click', '.media-list-link', function() {
+            var files = $(this).data('files');
+            var fileArray = files.split(','); // 将字符串分割成数组
+
+            // 创建媒体列表 HTML
+            var mediaListHtml = '<div class="media-list-popup">';
+            $.each(fileArray, function(index, file) {
+                var fileType = getFileType(file); // 获取文件类型
+                var mediaHtml = '';
+
+                if (fileType === 'image') {
+                    mediaHtml = '<img src="' + file + '" alt="媒体文件" data-url="' + file + '">';
+                } else if (fileType === 'video') {
+                    mediaHtml = '<video src="' + file + '" controls data-url="' + file + '"></video>';
+                } else {
+                    mediaHtml = '<a href="' + file + '" target="_blank">{:__("down_reports")}</a>';
+                }
+
+                mediaListHtml += '<div class="media-item" data-url="' + file + '">' + mediaHtml + '</div>';
+            });
+            mediaListHtml += '</div>';
+
+            // 弹出媒体列表
+            layer.open({
+                type: 1,
+                title: '{:__("reports_list")}',
+                content: mediaListHtml,
+                area: ['80%', '80%'], // 可以设置弹窗大小
+                success: function(layero, index) {
+                    // 绑定媒体点击事件
+                    $(layero).on('click', '.media-item', function() {
+                        var url = $(this).data('url');
+                        // 在新的弹窗中显示媒体
+                        layer.open({
+                            type: 2, // iframe
+                            title: '{:__("see_reports")}',
+                            content: url,
+                            area: ['80%', '80%']
+                        });
+                    });
+                }
+            });
+        });
+
+        // 获取文件类型
+        function getFileType(file) {
+            var ext = file.split('.').pop().toLowerCase();
+            if (['jpg', 'jpeg', 'png', 'gif', 'bmp'].indexOf(ext) !== -1) {
+                return 'image';
+            } else if (['mp4', 'avi', 'mov', 'wmv'].indexOf(ext) !== -1) {
+                return 'video';
+            } else {
+                return 'other';
+            }
+        }
+    };
+
+</script>
+<script src="__CDN__/assets/js/clipboard.min.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>

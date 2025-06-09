@@ -1,0 +1,51 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Tips')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-tips" data-rule="required" class="form-control" name="row[tips]" type="text" value="{$row.tips|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Keyword')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-keyword" data-rule="required" class="form-control" name="row[keyword]" type="text" value="{$row.keyword|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Text')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-text" data-rule="required" class="form-control " rows="5" name="row[text]" cols="50">{$row.text|htmlentities}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Lang')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-lang" data-rule="required" class="form-control" name="row[lang]" type="text" value="{$row.lang|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Mode')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-mode" data-rule="required" class="form-control selectpicker" name="row[mode]">
+                {foreach name="modeList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.mode"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Buttons')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-buttons" class="form-control " rows="5" name="row[buttons]" cols="50">{$row.buttons|htmlentities}</textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+        </div>
+    </div>
+</form>
