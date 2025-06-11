@@ -27,7 +27,7 @@ After the sale, it is unknown what the user will use the program source code for
 | 演示机器人(Demo Bot)                                                  | 演示群组(Demo Group)                                     | 演示后台(Demo Admin)                                           | 管理员用户名(Admin User) | 管理员密码(Admin Pass) |
 |------------------------------------------------------------------|------------------------------------------------------|------------------------------------------------------------|--------------------|-------------------|
 | [@demokelongBot](https://t.me/demokelongBot "@demokelongBot")    | [@phpsearchs](https://t.me/phpsearchs "@phpsearchs") | [后台地址(Admin Site)](https://copy.8br.dpdns.org/hDKsVnTZui.php "后台地址(Admin Site)") | admin              | Qwe12345.         |
- | [旧版本@indexdemo3Bot](https://t.me/indexdemo3Bot "@indexdemo3Bot") | 150U 开源版本                  |[后台地址(Admin Site)](https://three.oo-oo.eu.org/wocaole.php "后台地址(Admin Site)")| admin              | Qwe12345.         |
+ | [旧版本@indexdemo3Bot](https://t.me/indexdemo3Bot "@indexdemo3Bot") | 249U 开源版本                  |[后台地址(Admin Site)](https://three.oo-oo.eu.org/wocaole.php "后台地址(Admin Site)")| admin              | Qwe12345.         |
 #### 客户案例(Customer Cases):
 | 客户机器人(Customer Robot)                                           | 客户群组(Customer Group)                              | 客户用户名(Customer User)                              |
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
@@ -57,12 +57,10 @@ After the sale, it is unknown what the user will use the program source code for
 
 #### 售价:
 
-> 150U 一个月授权  不提供服务器服务器价格20U一个月  TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
-> 350U 三个月授权  不提供服务器服务器价格20U一个月  TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
-> 600U 六个月授权  不提供服务器服务器价格20U一个月  TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
-> 1000U 一年授权   不提供服务器服务器价格20U一个月  TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
-> 1700U 永久授权   给代码包搭建                  TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
-> 5000U 开源版本   TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
+> 600U 六个月授权  不提供服务器价格20U一个月  售后一个月  TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
+> 1000U 一年授权   不提供服务器价格20U一个月  售后三个月  TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
+> 1700U 永久授权   给代码包搭建  此版本售后一年包一年更新  TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
+> 5000U 开源版本   包更新一年,提供gitlab的clone权限 TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
 
 #### 接口文档:
 
