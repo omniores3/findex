@@ -58,15 +58,8 @@ After the sale, it is unknown what the user will use the program source code for
 #### 售价:
 
 <<<<<<< HEAD
-> 500U 永久授权 包搭建 送采集 包更新一个月 TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
 
-> 5000U 开源版本 包搭建 送采集 包更新一个月 TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
-=======
-> 600U 六个月授权  不提供服务器价格20U一个月  售后一个月  TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
-
-> 1000U 一年授权   不提供服务器价格20U一个月  售后三个月  TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
-
-> 1700U 永久授权   给代码包搭建  此版本售后一年包一年更新  TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
+> 500U 永久授权   包搭建  售后一个月  TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
 
 > 5000U 开源版本   包更新一年,提供gitlab的clone权限 TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
 >>>>>>> 931dfabea2302572df2cad13f20e44facb95f55f
