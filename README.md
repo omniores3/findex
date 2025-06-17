@@ -59,7 +59,7 @@ After the sale, it is unknown what the user will use the program source code for
 
 <<<<<<< HEAD
 
-> 500U 永久授权   包搭建  售后一个月  TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
+> 800U 永久授权   不包搭建(搭建收取50U搭建费用)  售后一个月  TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
 
 > 5000U 开源版本   包更新一年,提供gitlab的clone权限 TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
 >>>>>>> 931dfabea2302572df2cad13f20e44facb95f55f
