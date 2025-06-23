@@ -27,7 +27,7 @@ After the sale, it is unknown what the user will use the program source code for
 | 演示机器人(Demo Bot)                                                  | 演示群组(Demo Group)                                     | 演示后台(Demo Admin)                                           | 管理员用户名(Admin User) | 管理员密码(Admin Pass) |
 |------------------------------------------------------------------|------------------------------------------------------|------------------------------------------------------------|--------------------|-------------------|
 | [@demokelongBot](https://t.me/demokelongBot "@demokelongBot")    | [@phpsearchs](https://t.me/phpsearchs "@phpsearchs") | [后台地址(Admin Site)](https://copy.8br.dpdns.org/hDKsVnTZui.php "后台地址(Admin Site)") | admin              | Qwe12345.         |
- | [旧版本@indexdemo3Bot](https://t.me/indexdemo3Bot "@indexdemo3Bot") | 249U 开源版本                  |[后台地址(Admin Site)](https://three.oo-oo.eu.org/wocaole.php "后台地址(Admin Site)")| admin              | Qwe12345.         |
+
 #### 客户案例(Customer Cases):
 | 客户机器人(Customer Robot)                                           | 客户群组(Customer Group)                              | 客户用户名(Customer User)                              |
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
