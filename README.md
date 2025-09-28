@@ -20,17 +20,18 @@ This program is a paid closed-source system and requires authorization before us
 After the sale, it is unknown what the user will use the program source code for, so any legal liability caused by the user's use shall be borne by the user himself.
 
 #### 文档及其他信息(Documentation and other information):
-[搭建文档](https://68i.net/telegram%e6%9c%ba%e5%99%a8%e4%ba%ba%e7%b4%a2%e5%bc%95%e6%90%9c%e7%b4%a2%e5%bc%95%e6%93%8e%e6%ba%90%e7%a0%81/ "搭建文档") | [使用文档](https://t.me/easSearchs "使用文档") | [TG交流群](https://t.me/easSearch "TG交流群") | [官方论坛](https://68i.net "官方论坛") | [联系客服](https://t.me/easSearchs "联系客服") | [自助购买机器人](https://faka.68i.net "自助购买机器人") 
+[搭建文档](https://ylss.cc "搭建文档") | [使用文档](https://t.me/easSearchs "使用文档") | [TG交流群](https://t.me/easSearch "TG交流群") | [官方论坛](https://ylss.cc "官方论坛") | [联系客服](https://t.me/easSearchs "联系客服") | [自助购买机器人](https://ylss.cc "自助购买机器人") 
 
-[Building](https://68i.net/telegram%e6%9c%ba%e5%99%a8%e4%ba%ba%e7%b4%a2%e5%bc%95%e6%90%9c%e7%b4%a2%e5%bc%95%e6%93%8e%e6%ba%90%e7%a0%81/ "Building") | [Using](https://t.me/easSearchs "Using") | [TG Group](https://t.me/easSearch "TG Group") | [Official Forum](https://t.me/easSearchs "Official Forum") | [Contact](https://t.me/easSearchs "Contact") | [Self-service](https://faka.68i.net "Self-service") 
+[Building](https://ylss.cc "Building") | [Using](https://t.me/easSearchs "Using") | [TG Group](https://t.me/easSearch "TG Group") | [Official Forum](https://t.me/easSearchs "Official Forum") | [Contact](https://t.me/easSearchs "Contact") | [Self-service](https://ylss.cc "Self-service") 
 #### 演示信息:
 | 演示机器人(Demo Bot)                                                  | 演示群组(Demo Group)                                     | 演示后台(Demo Admin)                                           | 管理员用户名(Admin User) | 管理员密码(Admin Pass) |
 |------------------------------------------------------------------|------------------------------------------------------|------------------------------------------------------------|--------------------|-------------------|
-| [@demokelongBot](https://t.me/demokelongBot "@demokelongBot")    | [@phpsearchs](https://t.me/phpsearchs "@phpsearchs") | [后台地址(Admin Site)](https://copy.8br.dpdns.org/hDKsVnTZui.php "后台地址(Admin Site)") | admin              | Qwe12345.         |
+| [@ElasticSearchTestBot](https://t.me/ElasticSearchTestBot "@ElasticSearchTestBot")    | [@phpsearchs](https://t.me/phpsearchs "@phpsearchs") | [后台地址(Admin Site)](https://elastic.oo-oo.eu.org/hDKsVnTZui.php "后台地址(Admin Site)") | admin              | Qwe12345.         |
 
 #### 客户案例(Customer Cases):
 | 客户机器人(Customer Robot)                                           | 客户群组(Customer Group)                              | 客户用户名(Customer User)                              |
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
+| [@Robosearchbot](https://t.me/Robosearchbot "@Robosearchbot") | [中文搜索/中文导航/TG搜索](https://t.me/AIsousuoy "中文搜索/中文导航/TG搜索")                              | 萝卜                              |
 
 
 #### 骗子列表(Scammers):
@@ -38,6 +39,14 @@ After the sale, it is unknown what the user will use the program source code for
 | 骗子机器人(Scammers Bot) | 骗子群组(Scammers Group) | 骗子用户名(Scammers User) | 骗子用户id(Scammers Id) | 骗子昵称(Scammers name)  | 骗子网站(Scammers Site) |
 |---------------------|----------------------|----------------------|---------------------|---------------------|---------------------|
 
+
+#### 2025/9/28更新:
+
+1. :fa-check: 修改Meilisearch改为Elasticsearch
+2. :fa-check: 新增搜索设置
+3. :fa-check: 新增用户备用账号资产一键转移功能
+4. :fa-check: 新增一键备份一键还原功能
+5. :fa-check: 新增一条命令直接去重复，修复偏移数据
 
 #### 功能列表:
 
