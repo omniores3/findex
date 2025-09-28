@@ -47,6 +47,7 @@ After the sale, it is unknown what the user will use the program source code for
 3. :fa-check: 新增用户备用账号资产一键转移功能
 4. :fa-check: 新增一键备份一键还原功能
 5. :fa-check: 新增一条命令直接去重复，修复偏移数据
+6. :fa-check: 新增代理功能，将系统重新打包，代理搭建上后直接群组数据等都是从主站获取，其他数据自有，可监控代理财务预览
 
 #### 功能列表:
 
@@ -68,7 +69,7 @@ After the sale, it is unknown what the user will use the program source code for
 
 <<<<<<< HEAD
 
-> 800U 永久授权   不包搭建(搭建收取50U搭建费用)  售后一个月  TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
+> 1200U 永久授权   不包搭建(搭建收取50U搭建费用)  售后一个月  TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
 
 > 5000U 开源版本   包更新一年,提供gitlab的clone权限 TRC20钱包地址: THPFdxnzvji6jezBsk3pj99RXPHF9puSui
 >>>>>>> 931dfabea2302572df2cad13f20e44facb95f55f
